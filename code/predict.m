@@ -1,11 +1,3 @@
-#[X,Y]=create_data(10); #obtainnig trainnig data
-#plot_data(X,Y); #plotting de tarinig data
-#W1=[1,1,1;1,1,1]; #example values
-#W2=[1,2,2;1,3,3]; #example values
-
-function g = sigmoid(X)
-  g = 1 ./ (1 + e.^-X);
-end
 
 function y=predict(W1,W2,X)
     
@@ -26,6 +18,7 @@ function y=predict(W1,W2,X)
   capa2=y1*W2'; #second neuron layer input
   y=sigmoid(capa2); #activation funtion
 
-  waitforbuttonpress ();
+  
 endfunction;
-#predict(W1,W2,X)
+predict(W1,W2,X)
+waitforbuttonpress ();
