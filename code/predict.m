@@ -11,7 +11,7 @@ function y=predict(W1,W2,X)
   # W2: weights matrix between the hidden and the output layer
   # X:  Input vector, extended at its end with a 1
    
-  X=[ones(rows(X),1),X];  #bias
+  
   capa1=X*W1'; #first neuron layer input
   y1=sigmoid(capa1); #activation funtion
   y1=[ones(rows(y1),1),y1]; #bias
@@ -20,5 +20,5 @@ function y=predict(W1,W2,X)
 
   
 endfunction;
-predict(W1,W2,X)
-waitforbuttonpress ();
+#predict(W1,W2,X)
+#waitforbuttonpress ();

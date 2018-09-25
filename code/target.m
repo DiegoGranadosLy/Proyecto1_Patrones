@@ -1,12 +1,6 @@
-pkg load geometry
-
-#[X,Y]=create_data(10); #obtainnig trainnig data
-#plot_data(X,Y); #plotting de tarinig data
-#W1=[1,1,1;1,1,1;4,4,4]; #example values
-#W2=[1,2,2,4;1,3,3,5;1,2,3,4]; #example values
 
 function y=target(W1,W2,X,Y)
-    
+  pkg load geometry    
   # usage target(W1,W2,X,Y)
   # 
   # This function evaluates the sum of squares error for the
