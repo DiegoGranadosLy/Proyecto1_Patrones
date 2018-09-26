@@ -1,5 +1,5 @@
 
-function [nX,nY] = batch(X,Y,batchSize)
+function [nX,nY] = batch(X,Y,batchSize=1e12)
   nX=[];
   nY=[];
   if(batchSize<rows(X))
