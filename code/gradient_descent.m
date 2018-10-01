@@ -1,9 +1,9 @@
-[X,Y]=create_data(5000,3,'pie'); #obtaining trainnig data
-figure(1);
-plot_data(X,Y); #plotting de tarinig data
-X=[ones(rows(X),1),X];  #bias
-W1=[1,1,1;1,1,3;1,2,23]; #example values
-W2=[1,2,2,3;1,6,3,1;1,2,3,5]; #example values
+#[X,Y]=create_data(5000,3,'pie'); #obtaining trainnig data
+#figure(1);
+#plot_data(X,Y); #plotting de training data
+#X=[ones(rows(X),1),X];  #bias
+#W1=[1,1,1;1,1,3;1,2,23]; #example values
+#W2=[1,2,2,3;1,6,3,1;1,2,3,5]; #example values
 
 
 function [W1,W2] = gradient_descent(W1,W2,X,Y,batchSize=100000,lambda=0.002,maxIterations=2000,maxError=0.001)
@@ -33,7 +33,7 @@ end
 
 function v = visualization(W1,W2,X,Y)
     k=3; #number of classes 
-    [W1,W2]=gradient_descent(W1,W2,X,Y,100000); #trainig the neural network
+    [W1,W2]=gradient_descent(W1,W2,X,Y,100000); #training the neural network
     #preparing de input data for a 256x256 image#
     x=linspace(-1,1,256);
     [GX,GY]=meshgrid(x,x);
