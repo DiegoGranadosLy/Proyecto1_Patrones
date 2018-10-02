@@ -8,7 +8,9 @@
 
 function [W1,W2] = gradient_descent(W1,W2,X,Y,batchSize=100000,lambda=0.002,maxIterations=2000,maxError=0.001)
     disp("entrenando la red neuronal...");
+    disp(" ")
     disp("Al finalizar se mostrará un gráfico con la evolución del error ")
+    disp(" ")
     ite=0; #number of iterations
     Error=100; #initial error
     newError=50;
@@ -28,7 +30,6 @@ function [W1,W2] = gradient_descent(W1,W2,X,Y,batchSize=100000,lambda=0.002,maxI
     endwhile
     figure(2);
     plot(1:ite,errorVec); #error vs iterations during the gradient descent
-    waitforbuttonpress ();
 end
 
 function v = visualization(W1,W2,X,Y)
@@ -55,11 +56,11 @@ function v = visualization(W1,W2,X,Y)
     imshow(mixed); #showing the result
     ######################################################
     title("Clasificación de cada punto en una imagen");
-    waitforbuttonpress();
 
 end
 
 visualization(W1,W2,X,Y);
+waitforbuttonpress ();
 
 function w = packweights(W1,W2)
  w=[W1(:);W2(:)]

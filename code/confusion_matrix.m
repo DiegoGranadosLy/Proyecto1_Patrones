@@ -1,4 +1,4 @@
-numElements=10000;
+numElements=1000; #the 80% of this data is for training and the other 20% is for testing 
 trainingNum=numElements*0.8;
 [X,Y]=create_data(numElements,3,'pie'); #obtaining trainnig and test data
 figure(1);
@@ -13,7 +13,9 @@ W2=[1,2,2,3;1,6,3,1;1,2,3,5]; #example values
 
 [W1,W2]=gradient_descent(W1,W2,trainingX,trainingY,100000); #training the neural network
 
-classification=predict(W1,W2,testX)
+classification=predict(W1,W2,testX);#clasification using test data
+
+
 #####################confusion matrix#######################
 ##confusion matrix template:
 ##                        Predicted classes
@@ -33,6 +35,37 @@ for i=1:rows(classification)
     confusionMatrix(realClass,predictedClass)++;
 
 endfor
-confusionMatrix
+tp1=confusionMatrix(1,1);
+tp2=confusionMatrix(2,2);
+tp3=confusionMatrix(3,3);
+fp1=sum(confusionMatrix(2:3,1));
+fp2=confusionMatrix(1,2)+confusionMatrix(3,2);
+fp3=confusionMatrix(1,3)+confusionMatrix(2,3);
+disp("la matriz de confusión obtenida es:")
+disp(confusionMatrix);
+###sesitivity for each of the classes
+disp(" ") 
+disp("sensibilidad para la clase 1:");
+sensitivity1=tp1/sum(confusionMatrix(1,1:end))
+disp("sensibilidad para la clase 2:");
+sensitivity2=tp2/sum(confusionMatrix(2,1:end))
+disp("sensibilidad para la clase 3:");
+sensitivity3=tp3/sum(confusionMatrix(3,1:end))
+###precision for each of the classes
+disp(" ")
+disp("precisión para la clase 1:");
+precision1=tp1/(tp1+fp1)
+disp("precisión para la clase 2:");
+precision2=tp2/(tp2+fp2)
+disp("precisión para la clase 3:");
+precision3=tp3/(tp3+fp3)
+###F1 score for each of the classes
+disp(" ")
+disp("valor F1 para la clase 1:");
+Fscore1=(2*sensitivity1*precision1)/(sensitivity1+precision1)
+disp("valor F1 para la clase 2:");
+Fscore2=(2*sensitivity2*precision2)/(sensitivity2+precision2)
+disp("valor F1 para la clase 3:");
+Fscore3=(2*sensitivity3*precision3)/(sensitivity3+precision3)
 #########################################################
 waitforbuttonpress();
