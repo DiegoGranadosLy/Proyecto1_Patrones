@@ -1,4 +1,4 @@
-numElements=1000; #the 80% of this data is for training and the other 20% is for testing 
+numElements=1000*10/8; #the 80% of this data is for training and the other 20% is for testing 
 trainingNum=numElements*0.8;
 [X,Y]=create_data(numElements,3,'pie'); #obtaining trainnig and test data
 figure(1);
