@@ -1,7 +1,7 @@
 pkg load optim;
 pkg load geometry
 
-[X,Y]=create_data(1000,3,'pie'); #obtaining trainnig data
+[X,Y]=create_data(10000,3,'pie'); #obtaining trainnig data
 #figure(1);
 #plot_data(X,Y); #plotting de training data
 X=[ones(rows(X),1),X];  #bias
